@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: zapacars-postgres-dev
+    environment:
+      POSTGRES_DB: zapacars
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: devpassword123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  payload:
+    build: ./payload-cms
+    container_name: zapacars-payload-dev
+    environment:
+      DATABASE_URI: postgresql://admin:devpassword123@postgres:5432/zapacars
+      PAYLOAD_SECRET: dev-secret-key-change-in-production
+      NODE_ENV: development
+    ports:
+      - "3001:3000"
+    depends_on:
+      - postgres
+
+  frontend:
+    build: ./frontend
+    container_name: zapacars-frontend-dev
+    environment:
+      NEXT_PUBLIC_PAYLOAD_URL: http://payload:3000
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+
+volumes:
+  postgres_data:

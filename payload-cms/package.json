@@ -1,0 +1,27 @@
+{
+  "name": "zapacars-payload",
+  "version": "1.0.0",
+  "description": "ZapaCars CMS Backend",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon",
+    "build": "payload build",
+    "start": "cross-env NODE_ENV=production node dist/server.js",
+    "generate:types": "payload generate:types"
+  },
+  "dependencies": {
+    "@payloadcms/bundler-webpack": "^1.0.0",
+    "@payloadcms/db-postgres": "^0.8.0",
+    "@payloadcms/richtext-slate": "^1.5.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "payload": "^2.8.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
