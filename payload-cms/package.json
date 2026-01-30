@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon",
-    "build:ts": "npx -y typescript tsc",
+    "build:ts": "node node_modules/typescript/bin/tsc",
     "build": "npm run build:ts && payload build",
     "start": "cross-env NODE_ENV=production node dist/server.js",
     "generate:types": "payload generate:types"
