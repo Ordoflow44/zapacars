@@ -378,7 +378,7 @@ export default function Home() {
               </div>
               <span className="text-xs text-[#E30613] block mb-2">Serwis • 5 min czytania</span>
               <h3 className="text-xl font-bold text-white group-hover:text-[#E30613] transition-colors mb-2">
-                Ile kosztuje wymiana oleju? Cennik 2025
+                Ile kosztuje wymiana oleju? Cennik 2026
               </h3>
               <p className="text-gray-500 text-sm line-clamp-2">
                 Wymiana oleju kosztuje od 100 do 300 zł. Sprawdź, od czego zależy cena i jak nie przepłacać w warsztacie.
@@ -498,7 +498,7 @@ export default function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 pt-8 mt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
-          <p>© 2025 ZapaCars. Wszelkie prawa zastrzeżone.</p>
+          <p>© 2026 ZapaCars. Wszelkie prawa zastrzeżone.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="/polityka-prywatnosci" className="hover:text-[#E30613] transition-colors">Polityka Prywatności</a>
             <a href="/regulamin" className="hover:text-[#E30613] transition-colors">Regulamin</a>
