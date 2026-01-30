@@ -17,6 +17,7 @@ export default function Home() {
             <a href="#renowacja" className="hover:text-[#E30613] transition-colors">RENOWACJA</a>
             <a href="#cennik" className="hover:text-[#E30613] transition-colors">CENNIK</a>
             <a href="#o-nas" className="hover:text-[#E30613] transition-colors">O NAS</a>
+            <a href="#faq" className="hover:text-[#E30613] transition-colors">FAQ</a>
             <a href="#kontakt" className="bg-[#E30613] text-white px-6 py-2 hover:bg-red-700 transition-colors">KONTAKT</a>
           </div>
         </div>
@@ -26,9 +27,9 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center bg-black pt-20">
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10"></div>
         <div className="absolute inset-0 opacity-40">
-          <img 
-            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920" 
-            alt="Car" 
+          <img
+            src="/Hero_supra.webp"
+            alt="Toyota Supra ZapaCars"
             className="w-full h-full object-cover"
           />
         </div>
@@ -36,7 +37,7 @@ export default function Home() {
         <div className="relative z-20 max-w-7xl mx-auto px-6 py-20">
           <div className="max-w-2xl">
             <p className="text-[#E30613] text-sm uppercase tracking-widest mb-4">WARSZTAT SAMOCHODOWY • MYSŁOWICE</p>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-medium text-white mb-6 leading-tight">
               SERWIS.<br/>
               LAKIERNICTWO.<br/>
               <span className="text-[#E30613]">RENOWACJA.</span>
@@ -61,7 +62,7 @@ export default function Home() {
       <section id="uslugi" className="bg-neutral-950 py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">CENTRUM NAPRAW</h2>
+            <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4 tracking-tight">CENTRUM NAPRAW</h2>
             <p className="text-gray-400 text-lg">
               Kompleksowy warsztat samochodowy w Mysłowicach. Serwis bieżący, profesjonalne lakiernictwo 
               i renowacja klasyków – wszystko pod jednym dachem.
@@ -142,7 +143,7 @@ export default function Home() {
       <section id="cennik" className="bg-black py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">CENNIK</h2>
+            <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">CENNIK</h2>
             <p className="text-gray-400">
               Ceny orientacyjne – ostateczna kwota zależy od modelu auta i zakresu prac. 
               Zadzwoń lub napisz, wycenimy bezpłatnie.
@@ -218,16 +219,16 @@ export default function Home() {
       {/* O NAS */}
       <section id="o-nas" className="relative bg-neutral-950 py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img 
-            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920" 
-            alt="Toyota Supra" 
+          <img
+            src="/wlasciciele-supra.webp"
+            alt="Właściciele ZapaCars przy Toyota Supra"
             className="w-full h-full object-cover"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/95 to-neutral-950/80"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-8">
             BENZYNĘ MAMY WE KRWI
           </h2>
           
@@ -268,11 +269,97 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="bg-black py-20">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">NAJCZĘŚCIEJ ZADAWANE PYTANIA</h2>
+            <p className="text-gray-400">
+              Odpowiedzi na pytania, które najczęściej słyszymy od naszych klientów.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {/* FAQ Item 1 */}
+            <details className="group bg-neutral-900 border border-white/10">
+              <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
+                <span>Czy muszę umawiać się na wizytę?</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-400">
+                Zalecamy wcześniejszy kontakt telefoniczny, abyśmy mogli zarezerwować dla Ciebie czas.
+                W nagłych przypadkach staramy się pomóc od ręki, ale nie zawsze jest to możliwe.
+              </div>
+            </details>
+
+            {/* FAQ Item 2 */}
+            <details className="group bg-neutral-900 border border-white/10">
+              <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
+                <span>Jak długo trwa standardowy serwis?</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-400">
+                Wymiana oleju i filtrów to zazwyczaj 30-60 minut. Bardziej złożone naprawy mogą zająć
+                od kilku godzin do kilku dni – zawsze informujemy o przewidywanym czasie.
+              </div>
+            </details>
+
+            {/* FAQ Item 3 */}
+            <details className="group bg-neutral-900 border border-white/10">
+              <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
+                <span>Czy mogę dostarczyć własne części?</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-400">
+                Tak, akceptujemy części dostarczone przez klienta. Pamiętaj jednak, że w takim przypadku
+                gwarancja obejmuje tylko wykonaną usługę, nie samą część.
+              </div>
+            </details>
+
+            {/* FAQ Item 4 */}
+            <details className="group bg-neutral-900 border border-white/10">
+              <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
+                <span>Jakie marki samochodów obsługujecie?</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-400">
+                Obsługujemy wszystkie marki – od popularnych europejskich i azjatyckich po amerykańskie muscle cars
+                i klasyki. Specjalizujemy się również w autach sportowych i tuningowanych.
+              </div>
+            </details>
+
+            {/* FAQ Item 5 */}
+            <details className="group bg-neutral-900 border border-white/10">
+              <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
+                <span>Czy udzielacie gwarancji na naprawy?</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-400">
+                Tak, na wszystkie wykonane przez nas usługi udzielamy gwarancji. Okres gwarancji zależy od
+                rodzaju naprawy – szczegóły ustalamy indywidualnie.
+              </div>
+            </details>
+
+            {/* FAQ Item 6 */}
+            <details className="group bg-neutral-900 border border-white/10">
+              <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
+                <span>Czy oferujecie bezpłatną wycenę?</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+              </summary>
+              <div className="px-6 pb-6 text-gray-400">
+                Tak! Wycena jest zawsze bezpłatna i niezobowiązująca. Zadzwoń lub przyjedź – chętnie
+                obejrzymy auto i przedstawimy kosztorys.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
       {/* BLOG - 3 artykuły */}
-      <section id="blog" className="bg-black py-20">
+      <section id="blog" className="bg-neutral-950 py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">WIEDZA I PORADY</h2>
+            <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">WIEDZA I PORADY</h2>
             <p className="text-gray-400">
               Praktyczne porady motoryzacyjne od mechaników z ZapaCars. Dowiedz się, jak dbać o swój samochód.
             </p>
