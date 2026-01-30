@@ -7,6 +7,7 @@
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "tsc && payload build",
     "start": "cross-env NODE_ENV=production node dist/server.js",
+    "start:prod": "cross-env NODE_ENV=production sh -c 'npx payload migrate:create 2>/dev/null || true && npx payload migrate 2>/dev/null || true && node dist/server.js'",
     "generate:types": "payload generate:types"
   },
   "dependencies": {
