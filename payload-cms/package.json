@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon",
-    "build": "payload build",
+    "build": "tsc && payload build",
     "start": "cross-env NODE_ENV=production node dist/server.js",
     "generate:types": "payload generate:types"
   },
