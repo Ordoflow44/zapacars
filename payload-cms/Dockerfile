@@ -12,7 +12,7 @@ RUN rm -rf node_modules
 RUN npm ci --legacy-peer-deps
 
 # Build TypeScript
-RUN ./node_modules/.bin/tsc
+RUN npm run build:ts
 
 # Production stage
 FROM node:22-alpine
