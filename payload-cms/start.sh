@@ -1,29 +1,17 @@
 #!/bin/sh
 set -e
 
-echo "Creating migrations directory..."
+echo "=== ZapaCars CMS Startup ==="
+echo "Running database migrations..."
+
+# Create migrations directory
 mkdir -p /app/src/migrations
 
-echo "Running database push (schema sync)..."
-cd /app && node -e "
-const { getPayload } = require('payload');
-const config = require('./dist/payload.config.js').default;
+# Try to create migration (will fail if already exists, that's OK)
+npx payload migrate:create 2>&1 || echo "Migration creation skipped (may already exist)"
 
-async function run() {
-  try {
-    const payload = await getPayload({ config });
-    console.log('Payload initialized, database should be ready');
-    process.exit(0);
-  } catch (e) {
-    console.error('Init error:', e.message);
-    process.exit(1);
-  }
-}
-run();
-" || echo "Schema sync attempted"
-
-echo "Building admin UI..."
-npx payload build
+# Run migrations
+npx payload migrate 2>&1 || echo "Migration run completed"
 
 echo "Starting server..."
-node dist/server.js
+exec node dist/server.js

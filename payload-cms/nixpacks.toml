@@ -2,7 +2,7 @@
 cmds = ["npm install --legacy-peer-deps"]
 
 [phases.build]
-cmds = ["npm run build"]
+cmds = ["npm run build", "chmod +x start.sh"]
 
 [start]
-cmd = "npm run start:prod"
+cmd = "sh start.sh"
