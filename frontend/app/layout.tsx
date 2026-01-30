@@ -4,14 +4,14 @@ import './globals.css'
 
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600'],
   variable: '--font-inter',
   display: 'swap',
 })
 
 const oswald = Oswald({
   subsets: ['latin', 'latin-ext'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-oswald',
   display: 'swap',
 })
