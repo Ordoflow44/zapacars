@@ -2,16 +2,16 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+# Copy all files first
+COPY . .
+
+# Remove node_modules if accidentally copied
+RUN rm -rf node_modules
 
 # Install all dependencies (including dev)
 RUN npm ci --legacy-peer-deps
 
-# Copy source code
-COPY . .
-
-# Build TypeScript only
+# Build TypeScript
 RUN ./node_modules/.bin/tsc
 
 # Production stage
@@ -31,10 +31,6 @@ COPY --from=builder /app/src ./src
 
 # Expose port
 EXPOSE 3000
-
-# Copy startup script
-COPY start.sh ./
-RUN chmod +x start.sh
 
 # Start: run migrations, build admin UI, then start server
 CMD ["sh", "-c", "mkdir -p /app/src/migrations && npx payload migrate:create || true && npx payload migrate || true && npx payload build && node dist/server.js"]
