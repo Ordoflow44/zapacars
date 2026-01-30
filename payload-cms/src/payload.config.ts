@@ -56,6 +56,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI,
     },
+    push: true, // Auto-create tables on startup
   }),
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
