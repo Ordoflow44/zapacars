@@ -39,7 +39,7 @@ export default buildConfig({
         Icon,
       },
     },
-    css: path.resolve(__dirname, 'admin/styles/custom.scss'),
+    css: path.resolve(__dirname, '../src/admin/styles/custom.scss'),
   },
   collections: [
     Services,
