@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl" className="scroll-smooth">
-      <body className={`${inter.variable} ${oswald.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${oswald.variable} bg-[#050505] text-gray-300 antialiased selection:bg-[#E30613] selection:text-white`}>{children}</body>
     </html>
   )
 }
