@@ -32,5 +32,9 @@ COPY --from=builder /app/src ./src
 # Expose port
 EXPOSE 3000
 
-# Start: build admin UI then start server
-CMD ["sh", "-c", "npx payload build && node dist/server.js"]
+# Copy startup script
+COPY start.sh ./
+RUN chmod +x start.sh
+
+# Start: run migrations, build admin UI, then start server
+CMD ["sh", "-c", "mkdir -p /app/src/migrations && npx payload migrate:create || true && npx payload migrate || true && npx payload build && node dist/server.js"]
