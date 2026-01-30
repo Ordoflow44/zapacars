@@ -9,9 +9,18 @@ import { Blog } from './collections/Blog'
 import { Gallery } from './collections/Gallery'
 import { Media } from './collections/Media'
 import { Users } from './collections/Users'
+import { SiteSettings } from './globals/SiteSettings'
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'http://localhost:3000',
+  cors: [
+    'http://localhost:3000',
+    'http://localhost:3001',
+  ],
+  csrf: [
+    'http://localhost:3000',
+    'http://localhost:3001',
+  ],
   admin: {
     user: Users.slug,
     bundler: webpackBundler(),
@@ -27,6 +36,9 @@ export default buildConfig({
     Gallery,
     Media,
     Users,
+  ],
+  globals: [
+    SiteSettings,
   ],
   editor: slateEditor({}),
   db: postgresAdapter({
