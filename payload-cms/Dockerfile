@@ -12,7 +12,7 @@ RUN npm ci --legacy-peer-deps
 COPY . .
 
 # Build TypeScript only
-RUN npx tsc
+RUN ./node_modules/.bin/tsc
 
 # Production stage
 FROM node:22-alpine
