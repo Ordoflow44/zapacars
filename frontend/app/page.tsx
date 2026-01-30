@@ -218,14 +218,14 @@ export default function Home() {
 
       {/* O NAS */}
       <section id="o-nas" className="relative bg-neutral-950 py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0">
           <img
             src="/wlasciciele-supra.webp"
             alt="Właściciele ZapaCars przy Toyota Supra"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-60"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/95 to-neutral-950/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/80 to-transparent"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-semibold text-white mb-8">
