@@ -37,10 +37,10 @@ export default function Home() {
         <div className="relative z-20 max-w-7xl mx-auto px-6 py-20">
           <div className="max-w-2xl">
             <p className="text-[#E30613] text-sm uppercase tracking-widest mb-4">WARSZTAT SAMOCHODOWY • MYSŁOWICE</p>
-            <h1 className="text-5xl md:text-7xl font-medium text-white mb-6 leading-tight">
-              SERWIS.<br/>
-              LAKIERNICTWO.<br/>
-              <span className="text-[#E30613]">RENOWACJA.</span>
+            <h1 className="text-5xl md:text-7xl font-medium mb-6 leading-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">
+              <span className="bg-gradient-to-b from-white via-white to-gray-400 bg-clip-text text-transparent">SERWIS.</span><br/>
+              <span className="bg-gradient-to-b from-white via-white to-gray-400 bg-clip-text text-transparent">LAKIERNICTWO.</span><br/>
+              <span className="bg-gradient-to-r from-[#E30613] via-[#ff1a1a] to-[#E30613] bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(227,6,19,0.5)]">RENOWACJA.</span>
             </h1>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
               Kompleksowy warsztat samochodowy w Mysłowicach. Serwis bieżący, profesjonalne lakiernictwo 
