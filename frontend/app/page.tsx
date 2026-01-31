@@ -214,13 +214,11 @@ export default async function Home() {
                 </div>
                 <p className="text-gray-400 text-sm uppercase tracking-wide">CZYSTEJ PASJI</p>
               </div>
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <Star className="w-6 h-6 text-[#E30613]" />
-                  <span className="text-3xl font-bold text-white">5.0</span>
-                </div>
-                <p className="text-gray-400 text-sm uppercase tracking-wide">OCENA GOOGLE</p>
-              </div>
+            </div>
+
+            {/* Google Reviews Widget */}
+            <div className="mt-8">
+              <div className="elfsight-app-7563ee5a-4fb4-4203-815e-dffe9f9456d6" data-elfsight-app-lazy></div>
             </div>
           </div>
         </div>
