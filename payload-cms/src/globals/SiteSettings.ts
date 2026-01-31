@@ -226,5 +226,39 @@ export const SiteSettings: GlobalConfig = {
         },
       ],
     },
+    {
+      name: 'centreImages',
+      type: 'group',
+      label: 'Zdjęcia Centrum Napraw',
+      fields: [
+        {
+          name: 'serwisImage',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Zdjęcie - Serwis',
+          admin: {
+            description: 'Zalecany rozmiar: 800x450px (16:9), format WebP lub JPG, max 200KB',
+          },
+        },
+        {
+          name: 'lakiernistwoImage',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Zdjęcie - Lakiernictwo',
+          admin: {
+            description: 'Zalecany rozmiar: 800x450px (16:9), format WebP lub JPG, max 200KB',
+          },
+        },
+        {
+          name: 'renowacjaImage',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Zdjęcie - Renowacja',
+          admin: {
+            description: 'Zalecany rozmiar: 800x450px (16:9), format WebP lub JPG, max 200KB',
+          },
+        },
+      ],
+    },
   ],
 }

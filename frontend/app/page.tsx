@@ -1,6 +1,31 @@
 import { Phone, Mail, Wrench, Paintbrush, Sparkles, CheckCircle, Star } from 'lucide-react'
+import { getSiteSettings } from '@/lib/payload'
+import { PricingSection } from '@/components/PricingSection'
 
-export default function Home() {
+const PAYLOAD_URL = process.env.NEXT_PUBLIC_PAYLOAD_URL || 'http://localhost:3001'
+
+// Default images (fallbacks)
+const defaultImages = {
+  serwis: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800',
+  lakiernictwo: 'https://images.unsplash.com/photo-1625047509248-ec889cbff17f?q=80&w=800',
+  renowacja: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800',
+}
+
+function getImageUrl(media: { url?: string } | null | undefined, fallback: string): string {
+  if (media?.url) {
+    return media.url.startsWith('http') ? media.url : `${PAYLOAD_URL}${media.url}`
+  }
+  return fallback
+}
+
+export default async function Home() {
+  const settings = await getSiteSettings()
+  const centreImages = settings?.centreImages || {}
+
+  const serwisImage = getImageUrl(centreImages.serwisImage, defaultImages.serwis)
+  const lakiernistwoImage = getImageUrl(centreImages.lakiernistwoImage, defaultImages.lakiernictwo)
+  const renowacjaImage = getImageUrl(centreImages.renowacjaImage, defaultImages.renowacja)
+
   return (
     <>
       {/* NAVIGATION */}
@@ -33,7 +58,7 @@ export default function Home() {
             className="w-full h-full object-cover"
           />
         </div>
-        
+
         <div className="relative z-20 max-w-7xl mx-auto px-6 py-20">
           <div className="max-w-2xl">
             <p className="text-[#E30613] text-sm uppercase tracking-widest mb-4">WARSZTAT SAMOCHODOWY • MYSŁOWICE</p>
@@ -43,7 +68,7 @@ export default function Home() {
               <span className="bg-gradient-to-r from-[#E30613] to-white bg-clip-text text-transparent">RENOWACJA.</span>
             </h1>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              Kompleksowy warsztat samochodowy w Mysłowicach. Serwis bieżący, profesjonalne lakiernictwo 
+              Kompleksowy warsztat samochodowy w Mysłowicach. Serwis bieżący, profesjonalne lakiernictwo
               i renowacja klasyków – wszystko pod jednym dachem.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -51,7 +76,7 @@ export default function Home() {
                 SPRAWDŹ OFERTĘ
               </a>
               <a href="#kontakt" className="border border-white/20 text-white px-8 py-4 text-sm font-medium uppercase tracking-widest hover:border-[#E30613] hover:text-[#E30613] transition-all">
-                UMÓW WIZYTĘ
+                UMÓW BEZPŁATNĄ DIAGNOZĘ
               </a>
             </div>
           </div>
@@ -62,9 +87,9 @@ export default function Home() {
       <section id="uslugi" className="bg-neutral-950 py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4 tracking-tight">CENTRUM NAPRAW</h2>
+            <h2 className="text-4xl md:text-5xl font-medium text-white mb-4 tracking-tight">CENTRUM NAPRAW</h2>
             <p className="text-gray-400 text-lg">
-              Kompleksowy warsztat samochodowy w Mysłowicach. Serwis bieżący, profesjonalne lakiernictwo 
+              Kompleksowy warsztat samochodowy w Mysłowicach. Serwis bieżący, profesjonalne lakiernictwo
               i renowacja klasyków – wszystko pod jednym dachem.
             </p>
           </div>
@@ -73,16 +98,16 @@ export default function Home() {
             {/* Serwis */}
             <div id="serwis" className="group bg-neutral-900 border border-white/5 overflow-hidden hover:border-[#E30613] transition-all">
               <div className="aspect-video bg-neutral-800 relative overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800" 
-                  alt="Serwis" 
+                <img
+                  src={serwisImage}
+                  alt="Serwis"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 <Wrench className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613]" />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#E30613] transition-colors">SERWIS</h3>
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">SERWIS</h3>
                 <p className="text-gray-400 mb-4 leading-relaxed">
                   Kompleksowy serwis eksploatacyjny, diagnostyka komputerowa, naprawa układów hamulcowych i zawieszenia.
                 </p>
@@ -95,16 +120,16 @@ export default function Home() {
             {/* Lakiernictwo */}
             <div id="lakiernictwo" className="group bg-neutral-900 border border-white/5 overflow-hidden hover:border-[#E30613] transition-all">
               <div className="aspect-video bg-neutral-800 relative overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?q=80&w=800" 
-                  alt="Lakiernictwo" 
+                <img
+                  src={lakiernistwoImage}
+                  alt="Lakiernictwo"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 <Paintbrush className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613]" />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#E30613] transition-colors">LAKIERNICTWO</h3>
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">LAKIERNICTWO</h3>
                 <p className="text-gray-400 mb-4 leading-relaxed">
                   Profesjonalne naprawy lakiernicze po stłuczkach, renowacja elementów, kompleksowe malowanie.
                 </p>
@@ -117,21 +142,21 @@ export default function Home() {
             {/* Renowacja */}
             <div id="renowacja" className="group bg-neutral-900 border border-white/5 overflow-hidden hover:border-[#E30613] transition-all">
               <div className="aspect-video bg-neutral-800 relative overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800" 
-                  alt="Renowacja" 
+                <img
+                  src={renowacjaImage}
+                  alt="Renowacja"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 <Sparkles className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613]" />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#E30613] transition-colors">RENOWACJA</h3>
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">RENOWACJA</h3>
                 <p className="text-gray-400 mb-4 leading-relaxed">
                   Robimy samochody, których inne warsztaty się boją. Klasyki, niezwykłe modele, projekty od podstaw.
                 </p>
                 <a href="#kontakt" className="inline-flex items-center text-[#E30613] transition-colors text-sm uppercase tracking-wider">
-                  ZAPYTAJ O WYCENĘ →
+                  UMÓW BEZPŁATNĄ WYCENĘ →
                 </a>
               </div>
             </div>
@@ -140,81 +165,7 @@ export default function Home() {
       </section>
 
       {/* CENNIK */}
-      <section id="cennik" className="bg-black py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">CENNIK</h2>
-            <p className="text-gray-400">
-              Ceny orientacyjne – ostateczna kwota zależy od modelu auta i zakresu prac. 
-              Zadzwoń lub napisz, wycenimy bezpłatnie.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Serwis eksploatacyjny */}
-            <div className="bg-neutral-900 border border-white/10 p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <Wrench className="w-8 h-8 text-[#E30613]" />
-                <h3 className="text-xl font-bold text-white uppercase">SERWIS EKSPLOATACYJNY</h3>
-              </div>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex justify-between"><span>Wymiana oleju z filtrem</span><span className="text-white">od 100 zł</span></li>
-                <li className="flex justify-between"><span>Wymiana filtra powietrza</span><span className="text-white">od 30 zł</span></li>
-                <li className="flex justify-between"><span>Wymiana filtra paliwa</span><span className="text-white">od 50 zł</span></li>
-                <li className="flex justify-between"><span>Wymiana filtra kabinowego</span><span className="text-white">od 30 zł</span></li>
-                <li className="flex justify-between"><span>Wymiana płynu hamulcowego</span><span className="text-white">od 50 zł</span></li>
-                <li className="flex justify-between"><span>Wymiana płynu chłodzącego</span><span className="text-white">od 50 zł</span></li>
-                <li className="flex justify-between"><span>Wymiana świec zapłonowych (1 szt.)</span><span className="text-white">od 25 zł</span></li>
-              </ul>
-            </div>
-
-            {/* Układ hamulcowy */}
-            <div className="bg-neutral-900 border border-white/10 p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <CheckCircle className="w-8 h-8 text-[#E30613]" />
-                <h3 className="text-xl font-bold text-white uppercase">UKŁAD HAMULCOWY</h3>
-              </div>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex justify-between"><span>Wymiana klocków przód</span><span className="text-white">od 100 zł</span></li>
-                <li className="flex justify-between"><span>Wymiana klocków tył</span><span className="text-white">od 100 zł</span></li>
-                <li className="flex justify-between"><span>Wymiana tarcz i klocków przód</span><span className="text-white">od 150 zł</span></li>
-                <li className="flex justify-between"><span>Wymiana tarcz i klocków tył</span><span className="text-white">od 150 zł</span></li>
-                <li className="flex justify-between"><span>Naprawa zacisku hamulcowego</span><span className="text-white">od 100 zł</span></li>
-                <li className="flex justify-between"><span>Naprawa prowadnicy zacisku</span><span className="text-white">od 50 zł</span></li>
-              </ul>
-            </div>
-
-            {/* Lakiernictwo */}
-            <div className="bg-neutral-900 border border-white/10 p-8 md:col-span-2">
-              <div className="flex items-center gap-3 mb-6">
-                <Paintbrush className="w-8 h-8 text-[#E30613]" />
-                <h3 className="text-xl font-bold text-white uppercase">LAKIERNICTWO I RENOWACJA</h3>
-              </div>
-              <div className="grid md:grid-cols-3 gap-8">
-                <div>
-                  <p className="text-gray-300 mb-2">Polerowanie/renowacja reflektorów</p>
-                  <p className="text-2xl font-bold text-white">od 400 zł</p>
-                </div>
-                <div>
-                  <p className="text-gray-300 mb-2">Car spa</p>
-                  <p className="text-2xl font-bold text-white">od 300 zł</p>
-                </div>
-                <div>
-                  <p className="text-gray-300 mb-2">Car detailing / renowacja</p>
-                  <p className="text-2xl font-bold text-[#E30613]">wycena indywidualna</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-gray-500 mb-6">Nie znalazłeś swojej usługi? Zadzwoń – wycenimy bezpłatnie.</p>
-            <a href="#kontakt" className="inline-block bg-[#E30613] text-white px-8 py-4 text-sm font-medium uppercase tracking-widest hover:bg-red-700 transition-all">
-              ZAPYTAJ O WYCENĘ
-            </a>
-          </div>
-        </div>
-      </section>
+      <PricingSection />
 
       {/* O NAS */}
       <section id="o-nas" className="relative bg-neutral-950 py-20 overflow-hidden">
@@ -226,26 +177,26 @@ export default function Home() {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/80 to-transparent"></div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-8">
+          <h2 className="text-4xl md:text-5xl font-medium text-white mb-8">
             BENZYNĘ MAMY WE KRWI
           </h2>
-          
+
           <div className="max-w-3xl">
             <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              Poznaj historię, która zaczęła się od jednej <strong className="text-white">TOYOTA SUPRA</strong> i dwóch kuzynów z 
+              Poznaj historię, która zaczęła się od jednej <strong className="text-white">TOYOTA SUPRA</strong> i dwóch kuzynów z
               niemożliwą do ugaszenia pasją do czterech kółek.
             </p>
-            
+
             <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              <strong className="text-white">AREK I MACIEJ</strong> – jeden z pełnym placem samochodów, drugi poszukujący 
+              <strong className="text-white">AREK I MACIEJ</strong> – jeden z pełnym placem samochodów, drugi poszukujący
               swojego wymarzonego auta – wspólnie kupili ten legendarny model. To był moment, który zmienił wszystko.
             </p>
-            
+
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              Szybko zrozumieliśmy, że to coś więcej niż jedno auto. To była szansa, żeby pasję przekuć w misję – pomagać 
-              innym spełniać motoryzacyjne marzenia. Łącząc świetną lokalizację w Mysłowicach z naszym doświadczeniem, 
+              Szybko zrozumieliśmy, że to coś więcej niż jedno auto. To była szansa, żeby pasję przekuć w misję – pomagać
+              innym spełniać motoryzacyjne marzenia. Łącząc świetną lokalizację w Mysłowicach z naszym doświadczeniem,
               stworzyliśmy miejsce wyjątkowe. Tak powstało <strong className="text-[#E30613]">ZAPACARS</strong>.
             </p>
 
@@ -273,7 +224,7 @@ export default function Home() {
       <section id="faq" className="bg-black py-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">NAJCZĘŚCIEJ ZADAWANE PYTANIA</h2>
+            <h2 className="text-4xl md:text-5xl font-medium text-white mb-4">NAJCZĘŚCIEJ ZADAWANE PYTANIA</h2>
             <p className="text-gray-400">
               Odpowiedzi na pytania, które najczęściej słyszymy od naszych klientów.
             </p>
@@ -359,7 +310,7 @@ export default function Home() {
       <section id="blog" className="bg-neutral-950 py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4">WIEDZA I PORADY</h2>
+            <h2 className="text-4xl md:text-5xl font-medium text-white mb-4">WIEDZA I PORADY</h2>
             <p className="text-gray-400">
               Praktyczne porady motoryzacyjne od mechaników z ZapaCars. Dowiedz się, jak dbać o swój samochód.
             </p>
@@ -369,15 +320,15 @@ export default function Home() {
             {/* Article 1 */}
             <article className="group">
               <div className="overflow-hidden border border-white/5 mb-4 aspect-video bg-neutral-900">
-                <img 
-                  src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?q=80&w=600" 
-                  loading="lazy" 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" 
+                <img
+                  src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?q=80&w=600"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                   alt="Wymiana oleju"
                 />
               </div>
               <span className="text-xs text-[#E30613] block mb-2">Serwis • 5 min czytania</span>
-              <h3 className="text-xl font-bold text-white group-hover:text-[#E30613] transition-colors mb-2">
+              <h3 className="text-xl font-semibold text-white group-hover:text-[#E30613] transition-colors mb-2">
                 Ile kosztuje wymiana oleju? Cennik 2026
               </h3>
               <p className="text-gray-500 text-sm line-clamp-2">
@@ -388,15 +339,15 @@ export default function Home() {
             {/* Article 2 */}
             <article className="group">
               <div className="overflow-hidden border border-white/5 mb-4 aspect-video bg-neutral-900">
-                <img 
-                  src="https://images.unsplash.com/photo-1632823469636-2b0962d19bb8?q=80&w=600" 
-                  loading="lazy" 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" 
+                <img
+                  src="https://images.unsplash.com/photo-1632823469636-2b0962d19bb8?q=80&w=600"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                   alt="Wymiana klocków hamulcowych"
                 />
               </div>
               <span className="text-xs text-[#E30613] block mb-2">Hamulce • 4 min czytania</span>
-              <h3 className="text-xl font-bold text-white group-hover:text-[#E30613] transition-colors mb-2">
+              <h3 className="text-xl font-semibold text-white group-hover:text-[#E30613] transition-colors mb-2">
                 Jak często wymieniać klocki hamulcowe?
               </h3>
               <p className="text-gray-500 text-sm line-clamp-2">
@@ -407,15 +358,15 @@ export default function Home() {
             {/* Article 3 */}
             <article className="group">
               <div className="overflow-hidden border border-white/5 mb-4 aspect-video bg-neutral-900">
-                <img 
-                  src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=600" 
-                  loading="lazy" 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100" 
+                <img
+                  src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=600"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
                   alt="Tarcza hamulcowa"
                 />
               </div>
               <span className="text-xs text-[#E30613] block mb-2">Bezpieczeństwo • 3 min czytania</span>
-              <h3 className="text-xl font-bold text-white group-hover:text-[#E30613] transition-colors mb-2">
+              <h3 className="text-xl font-semibold text-white group-hover:text-[#E30613] transition-colors mb-2">
                 5 oznak, że Twoje hamulce wymagają wymiany
               </h3>
               <p className="text-gray-500 text-sm line-clamp-2">
@@ -436,7 +387,7 @@ export default function Home() {
       <section id="kontakt" className="bg-neutral-950 border-t border-white/10 py-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-3xl font-bold text-white mb-2 tracking-tight">SKONTAKTUJ SIĘ</h2>
+            <h2 className="text-3xl font-semibold text-white mb-2 tracking-tight">SKONTAKTUJ SIĘ</h2>
             <p className="text-gray-400 mb-8 text-sm">Wypełnij formularz. Odpowiemy w ciągu kilku godzin roboczych.</p>
 
             <form className="space-y-4">
@@ -455,7 +406,7 @@ export default function Home() {
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-white font-bold text-lg mb-4 uppercase tracking-wide">Adres warsztatu</h3>
+                <h3 className="text-white font-semibold text-lg mb-4 uppercase tracking-wide">Adres warsztatu</h3>
                 <address className="text-gray-400 text-sm leading-relaxed not-italic">
                   <strong>ZapaCars</strong><br />
                   ul. Fabryczna 12<br />
@@ -469,7 +420,7 @@ export default function Home() {
                 </p>
               </div>
               <div>
-                <h3 className="text-white font-bold text-lg mb-4 uppercase tracking-wide">Kontakt</h3>
+                <h3 className="text-white font-semibold text-lg mb-4 uppercase tracking-wide">Kontakt</h3>
                 <div className="text-gray-400 text-sm leading-relaxed flex flex-col gap-2">
                   <a href="tel:+48666959570" className="hover:text-[#E30613] transition-colors flex items-center gap-2">
                     <Phone className="w-4 h-4" /> 666 959 570 (Maciej)
