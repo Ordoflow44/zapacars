@@ -38,8 +38,8 @@ export default function Home() {
           <div className="max-w-2xl">
             <p className="text-[#E30613] text-sm uppercase tracking-widest mb-4">WARSZTAT SAMOCHODOWY • MYSŁOWICE</p>
             <h1 className="text-5xl md:text-7xl font-medium mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-white to-red-200 bg-clip-text text-transparent">SERWIS.</span><br/>
-              <span className="bg-gradient-to-r from-white to-red-200 bg-clip-text text-transparent">LAKIERNICTWO.</span><br/>
+              <span className="text-white">SERWIS.</span><br/>
+              <span className="text-white">LAKIERNICTWO.</span><br/>
               <span className="bg-gradient-to-r from-[#E30613] to-white bg-clip-text text-transparent">RENOWACJA.</span>
             </h1>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
