@@ -105,7 +105,7 @@ export default async function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Serwis */}
-            <div id="serwis" className="group glass-card-image">
+            <a href="#cennik" id="serwis" className="group glass-card-image cursor-pointer block">
               <div className="aspect-video relative overflow-hidden rounded-t-[19px]">
                 <img
                   src={serwisImage}
@@ -117,17 +117,14 @@ export default async function Home() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">SERWIS</h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Kompleksowy serwis eksploatacyjny, diagnostyka komputerowa, naprawa układów hamulcowych i zawieszenia.
                 </p>
-                <a href="#cennik" className="inline-flex items-center text-white group-hover:text-[#E30613] transition-colors text-sm uppercase tracking-wider">
-                  SPRAWDŹ CENNIK →
-                </a>
               </div>
-            </div>
+            </a>
 
             {/* Lakiernictwo */}
-            <div id="lakiernictwo" className="group glass-card-image">
+            <a href="#cennik" id="lakiernictwo" className="group glass-card-image cursor-pointer block">
               <div className="aspect-video relative overflow-hidden rounded-t-[19px]">
                 <img
                   src={lakiernistwoImage}
@@ -139,17 +136,14 @@ export default async function Home() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">LAKIERNICTWO</h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Profesjonalne naprawy lakiernicze po stłuczkach, renowacja elementów, kompleksowe malowanie.
                 </p>
-                <a href="#cennik" className="inline-flex items-center text-white group-hover:text-[#E30613] transition-colors text-sm uppercase tracking-wider">
-                  SPRAWDŹ CENNIK →
-                </a>
               </div>
-            </div>
+            </a>
 
             {/* Renowacja */}
-            <div id="renowacja" className="group glass-card-image">
+            <a href="#cennik" id="renowacja" className="group glass-card-image cursor-pointer block">
               <div className="aspect-video relative overflow-hidden rounded-t-[19px]">
                 <img
                   src={renowacjaImage}
@@ -161,14 +155,17 @@ export default async function Home() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">RENOWACJA</h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   Robimy samochody, których inne warsztaty się boją. Klasyki, niezwykłe modele, projekty od podstaw.
                 </p>
-                <a href="#kontakt" className="inline-flex items-center text-[#E30613] transition-colors text-sm uppercase tracking-wider">
-                  UMÓW BEZPŁATNĄ WYCENĘ →
-                </a>
               </div>
-            </div>
+            </a>
+          </div>
+
+          <div className="text-center mt-12">
+            <a href="#kontakt" className="inline-block bg-[#E30613] text-white px-10 py-5 text-sm font-medium uppercase tracking-widest hover:bg-red-700 transition-all hover:shadow-[0_0_30px_rgba(227,6,19,0.4)]">
+              UMÓW BEZPŁATNĄ WYCENĘ
+            </a>
           </div>
         </div>
       </section>
