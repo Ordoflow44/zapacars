@@ -35,41 +35,41 @@ export function PricingSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Serwis eksploatacyjny */}
-          <div className="bg-neutral-900 border border-white/10 p-8">
+          <div className="glass-card glass-inner-glow p-8">
             <div className="flex items-center gap-3 mb-6">
-              <Wrench className="w-8 h-8 text-[#E30613]" />
+              <Wrench className="w-8 h-8 text-[#E30613] drop-shadow-[0_0_8px_rgba(227,6,19,0.5)]" />
               <h3 className="text-xl font-semibold text-white uppercase">SERWIS EKSPLOATACYJNY</h3>
             </div>
             <ul className="space-y-3 text-gray-300">
               {items.serwis.map((item, index) => (
                 <li key={index} className="flex justify-between">
                   <span>{item.name}</span>
-                  <span className="text-white">{item.price}</span>
+                  <span className="text-white font-medium">{item.price}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Układ hamulcowy */}
-          <div className="bg-neutral-900 border border-white/10 p-8">
+          <div className="glass-card glass-inner-glow p-8">
             <div className="flex items-center gap-3 mb-6">
-              <CheckCircle className="w-8 h-8 text-[#E30613]" />
+              <CheckCircle className="w-8 h-8 text-[#E30613] drop-shadow-[0_0_8px_rgba(227,6,19,0.5)]" />
               <h3 className="text-xl font-semibold text-white uppercase">UKŁAD HAMULCOWY</h3>
             </div>
             <ul className="space-y-3 text-gray-300">
               {items.hamulce.map((item, index) => (
                 <li key={index} className="flex justify-between">
                   <span>{item.name}</span>
-                  <span className="text-white">{item.price}</span>
+                  <span className="text-white font-medium">{item.price}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Lakiernictwo */}
-          <div className="bg-neutral-900 border border-white/10 p-8 md:col-span-2">
+          <div className="glass-card glass-inner-glow p-8 md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <Paintbrush className="w-8 h-8 text-[#E30613]" />
+              <Paintbrush className="w-8 h-8 text-[#E30613] drop-shadow-[0_0_8px_rgba(227,6,19,0.5)]" />
               <h3 className="text-xl font-semibold text-white uppercase">LAKIERNICTWO I RENOWACJA</h3>
             </div>
             <div className="grid md:grid-cols-3 gap-8">

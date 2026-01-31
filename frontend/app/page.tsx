@@ -105,15 +105,15 @@ export default async function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Serwis */}
-            <div id="serwis" className="group bg-neutral-900 border border-white/5 overflow-hidden hover:border-[#E30613] transition-all">
-              <div className="aspect-video bg-neutral-800 relative overflow-hidden">
+            <div id="serwis" className="group glass-card-image">
+              <div className="aspect-video relative overflow-hidden rounded-t-[19px]">
                 <img
                   src={serwisImage}
                   alt="Serwis"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <Wrench className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <Wrench className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613] drop-shadow-[0_0_12px_rgba(227,6,19,0.6)]" />
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">SERWIS</h3>
@@ -127,15 +127,15 @@ export default async function Home() {
             </div>
 
             {/* Lakiernictwo */}
-            <div id="lakiernictwo" className="group bg-neutral-900 border border-white/5 overflow-hidden hover:border-[#E30613] transition-all">
-              <div className="aspect-video bg-neutral-800 relative overflow-hidden">
+            <div id="lakiernictwo" className="group glass-card-image">
+              <div className="aspect-video relative overflow-hidden rounded-t-[19px]">
                 <img
                   src={lakiernistwoImage}
                   alt="Lakiernictwo"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <Paintbrush className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <Paintbrush className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613] drop-shadow-[0_0_12px_rgba(227,6,19,0.6)]" />
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">LAKIERNICTWO</h3>
@@ -149,15 +149,15 @@ export default async function Home() {
             </div>
 
             {/* Renowacja */}
-            <div id="renowacja" className="group bg-neutral-900 border border-white/5 overflow-hidden hover:border-[#E30613] transition-all">
-              <div className="aspect-video bg-neutral-800 relative overflow-hidden">
+            <div id="renowacja" className="group glass-card-image">
+              <div className="aspect-video relative overflow-hidden rounded-t-[19px]">
                 <img
                   src={renowacjaImage}
                   alt="Renowacja"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <Sparkles className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                <Sparkles className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613] drop-shadow-[0_0_12px_rgba(227,6,19,0.6)]" />
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">RENOWACJA</h3>
@@ -241,10 +241,10 @@ export default async function Home() {
 
           <div className="space-y-4">
             {/* FAQ Item 1 */}
-            <details className="group bg-neutral-900 border border-white/10">
+            <details className="group glass-faq">
               <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
                 <span>Czy muszę umawiać się na wizytę?</span>
-                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform duration-300 text-2xl">+</span>
               </summary>
               <div className="px-6 pb-6 text-gray-400">
                 Zalecamy wcześniejszy kontakt telefoniczny, abyśmy mogli zarezerwować dla Ciebie czas.
@@ -253,10 +253,10 @@ export default async function Home() {
             </details>
 
             {/* FAQ Item 2 */}
-            <details className="group bg-neutral-900 border border-white/10">
+            <details className="group glass-faq">
               <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
                 <span>Jak długo trwa standardowy serwis?</span>
-                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform duration-300 text-2xl">+</span>
               </summary>
               <div className="px-6 pb-6 text-gray-400">
                 Wymiana oleju i filtrów to zazwyczaj 30-60 minut. Bardziej złożone naprawy mogą zająć
@@ -265,10 +265,10 @@ export default async function Home() {
             </details>
 
             {/* FAQ Item 3 */}
-            <details className="group bg-neutral-900 border border-white/10">
+            <details className="group glass-faq">
               <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
                 <span>Czy mogę dostarczyć własne części?</span>
-                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform duration-300 text-2xl">+</span>
               </summary>
               <div className="px-6 pb-6 text-gray-400">
                 Tak, akceptujemy części dostarczone przez klienta. Pamiętaj jednak, że w takim przypadku
@@ -277,10 +277,10 @@ export default async function Home() {
             </details>
 
             {/* FAQ Item 4 */}
-            <details className="group bg-neutral-900 border border-white/10">
+            <details className="group glass-faq">
               <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
                 <span>Jakie marki samochodów obsługujecie?</span>
-                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform duration-300 text-2xl">+</span>
               </summary>
               <div className="px-6 pb-6 text-gray-400">
                 Obsługujemy wszystkie marki – od popularnych europejskich i azjatyckich po amerykańskie muscle cars
@@ -289,10 +289,10 @@ export default async function Home() {
             </details>
 
             {/* FAQ Item 5 */}
-            <details className="group bg-neutral-900 border border-white/10">
+            <details className="group glass-faq">
               <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
                 <span>Czy udzielacie gwarancji na naprawy?</span>
-                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform duration-300 text-2xl">+</span>
               </summary>
               <div className="px-6 pb-6 text-gray-400">
                 Tak, na wszystkie wykonane przez nas usługi udzielamy gwarancji. Okres gwarancji zależy od
@@ -301,10 +301,10 @@ export default async function Home() {
             </details>
 
             {/* FAQ Item 6 */}
-            <details className="group bg-neutral-900 border border-white/10">
+            <details className="group glass-faq">
               <summary className="flex justify-between items-center cursor-pointer p-6 text-white font-medium">
                 <span>Czy oferujecie bezpłatną wycenę?</span>
-                <span className="text-[#E30613] group-open:rotate-45 transition-transform text-2xl">+</span>
+                <span className="text-[#E30613] group-open:rotate-45 transition-transform duration-300 text-2xl">+</span>
               </summary>
               <div className="px-6 pb-6 text-gray-400">
                 Tak! Wycena jest zawsze bezpłatna i niezobowiązująca. Zadzwoń lub przyjedź – chętnie
@@ -327,12 +327,12 @@ export default async function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Article 1 */}
-            <article className="group">
-              <div className="overflow-hidden border border-white/5 mb-4 aspect-video bg-neutral-900">
+            <article className="group glass-blog">
+              <div className="overflow-hidden rounded-xl mb-4 aspect-video">
                 <img
                   src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?q=80&w=600"
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                   alt="Wymiana oleju"
                 />
               </div>
@@ -346,12 +346,12 @@ export default async function Home() {
             </article>
 
             {/* Article 2 */}
-            <article className="group">
-              <div className="overflow-hidden border border-white/5 mb-4 aspect-video bg-neutral-900">
+            <article className="group glass-blog">
+              <div className="overflow-hidden rounded-xl mb-4 aspect-video">
                 <img
                   src="https://images.unsplash.com/photo-1632823469636-2b0962d19bb8?q=80&w=600"
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                   alt="Wymiana klocków hamulcowych"
                 />
               </div>
@@ -365,12 +365,12 @@ export default async function Home() {
             </article>
 
             {/* Article 3 */}
-            <article className="group">
-              <div className="overflow-hidden border border-white/5 mb-4 aspect-video bg-neutral-900">
+            <article className="group glass-blog">
+              <div className="overflow-hidden rounded-xl mb-4 aspect-video">
                 <img
                   src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=600"
                   loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                   alt="Tarcza hamulcowa"
                 />
               </div>
