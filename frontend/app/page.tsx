@@ -2,6 +2,9 @@ import { Phone, Mail, Wrench, Paintbrush, Sparkles, CheckCircle, Star } from 'lu
 import { getSiteSettings } from '@/lib/payload'
 import { PricingSection } from '@/components/PricingSection'
 
+// Force dynamic rendering - don't try to build static page
+export const dynamic = 'force-dynamic'
+
 const PAYLOAD_URL = process.env.NEXT_PUBLIC_PAYLOAD_URL || 'http://localhost:3001'
 
 // Default images (fallbacks)
