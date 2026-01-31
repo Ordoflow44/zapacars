@@ -22,7 +22,13 @@ function getImageUrl(media: { url?: string } | null | undefined, fallback: strin
 }
 
 export default async function Home() {
-  const settings = await getSiteSettings()
+  // Try to fetch CMS settings, fall back to defaults if unavailable
+  let settings = null
+  try {
+    settings = await getSiteSettings()
+  } catch {
+    // CMS unavailable - use default images
+  }
   const centreImages = settings?.centreImages || {}
 
   const serwisImage = getImageUrl(centreImages.serwisImage, defaultImages.serwis)
