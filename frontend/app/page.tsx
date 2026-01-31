@@ -215,11 +215,6 @@ export default async function Home() {
                 <p className="text-gray-400 text-sm uppercase tracking-wide">CZYSTEJ PASJI</p>
               </div>
             </div>
-
-            {/* Google Reviews Widget */}
-            <div className="mt-8">
-              <div className="elfsight-app-7563ee5a-4fb4-4203-815e-dffe9f9456d6" data-elfsight-app-lazy></div>
-            </div>
           </div>
         </div>
       </section>
@@ -384,6 +379,19 @@ export default async function Home() {
               ZOBACZ WIĘCEJ PORAD
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* OPINIE KLIENTÓW */}
+      <section id="opinie" className="bg-black py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-medium text-white mb-4">CO MÓWIĄ NASI KLIENCI</h2>
+            <p className="text-gray-400">
+              Opinie z Google od kierowców, którzy nam zaufali.
+            </p>
+          </div>
+          <div className="elfsight-app-7563ee5a-4fb4-4203-815e-dffe9f9456d6" data-elfsight-app-lazy></div>
         </div>
       </section>
 
