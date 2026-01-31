@@ -7,11 +7,25 @@ export const dynamic = 'force-dynamic'
 
 const PAYLOAD_URL = process.env.NEXT_PUBLIC_PAYLOAD_URL || 'http://localhost:3001'
 
-// Default images (fallbacks)
-const defaultImages = {
-  serwis: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800',
-  lakiernictwo: 'https://images.unsplash.com/photo-1625047509248-ec889cbff17f?q=80&w=800',
-  renowacja: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800',
+// Default content (fallbacks)
+const defaults = {
+  sectionTitle: 'CENTRUM NAPRAW',
+  sectionDescription: 'Kompleksowy warsztat samochodowy w Mysłowicach. Serwis bieżący, profesjonalne lakiernictwo i renowacja klasyków – wszystko pod jednym dachem.',
+  serwis: {
+    title: 'SERWIS',
+    description: 'Kompleksowy serwis eksploatacyjny, diagnostyka komputerowa, naprawa układów hamulcowych i zawieszenia.',
+    image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800',
+  },
+  lakiernictwo: {
+    title: 'LAKIERNICTWO',
+    description: 'Profesjonalne naprawy lakiernicze po stłuczkach, renowacja elementów, kompleksowe malowanie.',
+    image: 'https://images.unsplash.com/photo-1625047509248-ec889cbff17f?q=80&w=800',
+  },
+  renowacja: {
+    title: 'RENOWACJA',
+    description: 'Robimy samochody, których inne warsztaty się boją. Klasyki, niezwykłe modele, projekty od podstaw.',
+    image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800',
+  },
 }
 
 function getImageUrl(media: { url?: string } | null | undefined, fallback: string): string {
@@ -27,13 +41,28 @@ export default async function Home() {
   try {
     settings = await getSiteSettings()
   } catch {
-    // CMS unavailable - use default images
+    // CMS unavailable - use default content
   }
-  const centreImages = settings?.centreImages || {}
+  const centrumNapraw = settings?.centrumNapraw || {}
 
-  const serwisImage = getImageUrl(centreImages.serwisImage, defaultImages.serwis)
-  const lakiernistwoImage = getImageUrl(centreImages.lakiernistwoImage, defaultImages.lakiernictwo)
-  const renowacjaImage = getImageUrl(centreImages.renowacjaImage, defaultImages.renowacja)
+  // Section content
+  const sectionTitle = centrumNapraw.sectionTitle || defaults.sectionTitle
+  const sectionDescription = centrumNapraw.sectionDescription || defaults.sectionDescription
+
+  // Serwis content
+  const serwisTitle = centrumNapraw.serwis?.title || defaults.serwis.title
+  const serwisDescription = centrumNapraw.serwis?.description || defaults.serwis.description
+  const serwisImage = getImageUrl(centrumNapraw.serwis?.image, defaults.serwis.image)
+
+  // Lakiernictwo content
+  const lakiernictwoTitle = centrumNapraw.lakiernictwo?.title || defaults.lakiernictwo.title
+  const lakiernictwoDescription = centrumNapraw.lakiernictwo?.description || defaults.lakiernictwo.description
+  const lakiernictwoImage = getImageUrl(centrumNapraw.lakiernictwo?.image, defaults.lakiernictwo.image)
+
+  // Renowacja content
+  const renowacjaTitle = centrumNapraw.renowacja?.title || defaults.renowacja.title
+  const renowacjaDescription = centrumNapraw.renowacja?.description || defaults.renowacja.description
+  const renowacjaImage = getImageUrl(centrumNapraw.renowacja?.image, defaults.renowacja.image)
 
   return (
     <>
@@ -96,10 +125,9 @@ export default async function Home() {
       <section id="uslugi" className="bg-neutral-950 py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-medium text-white mb-4 tracking-tight">CENTRUM NAPRAW</h2>
+            <h2 className="text-4xl md:text-5xl font-medium text-white mb-4 tracking-tight">{sectionTitle}</h2>
             <p className="text-gray-400 text-lg">
-              Kompleksowy warsztat samochodowy w Mysłowicach. Serwis bieżący, profesjonalne lakiernictwo
-              i renowacja klasyków – wszystko pod jednym dachem.
+              {sectionDescription}
             </p>
           </div>
 
@@ -109,16 +137,16 @@ export default async function Home() {
               <div className="aspect-video relative overflow-hidden rounded-t-[19px]">
                 <img
                   src={serwisImage}
-                  alt="Serwis"
+                  alt={serwisTitle}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                 <Wrench className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613] drop-shadow-[0_0_12px_rgba(227,6,19,0.6)]" />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">SERWIS</h3>
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">{serwisTitle}</h3>
                 <p className="text-gray-400 leading-relaxed">
-                  Kompleksowy serwis eksploatacyjny, diagnostyka komputerowa, naprawa układów hamulcowych i zawieszenia.
+                  {serwisDescription}
                 </p>
               </div>
             </a>
@@ -127,17 +155,17 @@ export default async function Home() {
             <a href="#cennik" id="lakiernictwo" className="group glass-card-image cursor-pointer block">
               <div className="aspect-video relative overflow-hidden rounded-t-[19px]">
                 <img
-                  src={lakiernistwoImage}
-                  alt="Lakiernictwo"
+                  src={lakiernictwoImage}
+                  alt={lakiernictwoTitle}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                 <Paintbrush className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613] drop-shadow-[0_0_12px_rgba(227,6,19,0.6)]" />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">LAKIERNICTWO</h3>
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">{lakiernictwoTitle}</h3>
                 <p className="text-gray-400 leading-relaxed">
-                  Profesjonalne naprawy lakiernicze po stłuczkach, renowacja elementów, kompleksowe malowanie.
+                  {lakiernictwoDescription}
                 </p>
               </div>
             </a>
@@ -147,16 +175,16 @@ export default async function Home() {
               <div className="aspect-video relative overflow-hidden rounded-t-[19px]">
                 <img
                   src={renowacjaImage}
-                  alt="Renowacja"
+                  alt={renowacjaTitle}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                 <Sparkles className="absolute bottom-4 left-4 w-12 h-12 text-[#E30613] drop-shadow-[0_0_12px_rgba(227,6,19,0.6)]" />
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">RENOWACJA</h3>
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-[#E30613] transition-colors">{renowacjaTitle}</h3>
                 <p className="text-gray-400 leading-relaxed">
-                  Robimy samochody, których inne warsztaty się boją. Klasyki, niezwykłe modele, projekty od podstaw.
+                  {renowacjaDescription}
                 </p>
               </div>
             </a>

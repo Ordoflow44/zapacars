@@ -227,36 +227,121 @@ export const SiteSettings: GlobalConfig = {
       ],
     },
     {
-      name: 'centreImages',
+      name: 'centrumNapraw',
       type: 'group',
-      label: 'Zdjęcia Centrum Napraw',
+      label: 'Centrum Napraw',
       fields: [
         {
-          name: 'serwisImage',
-          type: 'upload',
-          relationTo: 'media',
-          label: 'Zdjęcie - Serwis',
+          name: 'sectionTitle',
+          type: 'text',
+          label: 'Tytuł sekcji',
           admin: {
-            description: 'Zalecany rozmiar: 800x450px (16:9), format WebP lub JPG, max 200KB',
+            description: 'Domyślnie: CENTRUM NAPRAW',
           },
         },
         {
-          name: 'lakiernistwoImage',
-          type: 'upload',
-          relationTo: 'media',
-          label: 'Zdjęcie - Lakiernictwo',
+          name: 'sectionDescription',
+          type: 'textarea',
+          label: 'Opis sekcji',
           admin: {
-            description: 'Zalecany rozmiar: 800x450px (16:9), format WebP lub JPG, max 200KB',
+            description: 'Domyślnie: Kompleksowy warsztat samochodowy w Mysłowicach...',
           },
         },
         {
-          name: 'renowacjaImage',
-          type: 'upload',
-          relationTo: 'media',
-          label: 'Zdjęcie - Renowacja',
-          admin: {
-            description: 'Zalecany rozmiar: 800x450px (16:9), format WebP lub JPG, max 200KB',
-          },
+          name: 'serwis',
+          type: 'group',
+          label: 'Serwis',
+          fields: [
+            {
+              name: 'title',
+              type: 'text',
+              label: 'Tytuł',
+              admin: {
+                description: 'Domyślnie: SERWIS',
+              },
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+              label: 'Opis',
+              admin: {
+                description: 'Domyślnie: Kompleksowy serwis eksploatacyjny, diagnostyka komputerowa...',
+              },
+            },
+            {
+              name: 'image',
+              type: 'upload',
+              relationTo: 'media',
+              label: 'Zdjęcie',
+              admin: {
+                description: 'Zalecany rozmiar: 800x450px (16:9), format WebP lub JPG, max 200KB',
+              },
+            },
+          ],
+        },
+        {
+          name: 'lakiernictwo',
+          type: 'group',
+          label: 'Lakiernictwo',
+          fields: [
+            {
+              name: 'title',
+              type: 'text',
+              label: 'Tytuł',
+              admin: {
+                description: 'Domyślnie: LAKIERNICTWO',
+              },
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+              label: 'Opis',
+              admin: {
+                description: 'Domyślnie: Profesjonalne naprawy lakiernicze po stłuczkach...',
+              },
+            },
+            {
+              name: 'image',
+              type: 'upload',
+              relationTo: 'media',
+              label: 'Zdjęcie',
+              admin: {
+                description: 'Zalecany rozmiar: 800x450px (16:9), format WebP lub JPG, max 200KB',
+              },
+            },
+          ],
+        },
+        {
+          name: 'renowacja',
+          type: 'group',
+          label: 'Renowacja',
+          fields: [
+            {
+              name: 'title',
+              type: 'text',
+              label: 'Tytuł',
+              admin: {
+                description: 'Domyślnie: RENOWACJA',
+              },
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+              label: 'Opis',
+              admin: {
+                description: 'Domyślnie: Robimy samochody, których inne warsztaty się boją...',
+              },
+            },
+            {
+              name: 'image',
+              type: 'upload',
+              relationTo: 'media',
+              label: 'Zdjęcie',
+              admin: {
+                description: 'Zalecany rozmiar: 800x450px (16:9), format WebP lub JPG, max 200KB',
+              },
+            },
+          ],
         },
       ],
     },
