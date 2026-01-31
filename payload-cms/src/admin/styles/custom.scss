@@ -1,14 +1,82 @@
-// ZapaCars Admin Theme
+// ZapaCars Admin Theme - Dark mode with high contrast text
 :root {
-  // Brand colors
+  // Background colors (dark)
   --theme-elevation-0: #0a0a0a;
   --theme-elevation-50: #111111;
   --theme-elevation-100: #1a1a1a;
   --theme-elevation-150: #222222;
   --theme-elevation-200: #2a2a2a;
   --theme-elevation-250: #333333;
+  --theme-elevation-300: #3d3d3d;
+  --theme-elevation-350: #474747;
+  --theme-elevation-400: #525252;
+  --theme-elevation-450: #5c5c5c;
+  --theme-elevation-500: #666666;
 
+  // Text colors - white/off-white for maximum readability
   --theme-text: #ffffff;
+}
+
+// Force all text to be white/off-white
+body,
+.payload-default,
+[data-theme="dark"] {
+  color: #f5f5f5 !important;
+}
+
+// Labels, descriptions, placeholders
+label,
+.field-description,
+.label,
+.nav__link,
+.step-nav__link,
+.group-field__title,
+.collapsible__title,
+.render-fields .field-type,
+.cell,
+th,
+td,
+p,
+span,
+div {
+  color: #f0f0f0;
+}
+
+// Input fields
+input,
+textarea,
+select,
+.textarea-input,
+.text-input {
+  color: #ffffff !important;
+  background-color: #1a1a1a !important;
+  border-color: #404040 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #b0b0b0 !important;
+}
+
+// Headings - pure white
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+// Sidebar styling
+.nav {
+  background: #0a0a0a;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.nav__link {
+  color: #e8e8e8 !important;
+}
+
+.nav__link:hover,
+.nav__link--active {
+  color: #ffffff !important;
 }
 
 // Custom login page
@@ -16,13 +84,17 @@
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
-// Sidebar styling
-.nav {
-  background: #0a0a0a;
-  border-right: 1px solid rgba(255,255,255,0.1);
+// Buttons
+.btn {
+  color: #ffffff !important;
 }
 
-// Headers
-h1, h2, h3 {
-  font-weight: 500;
+// Table headers
+th {
+  color: #ffffff !important;
+}
+
+// Field descriptions - slightly dimmer but still readable
+.field-description {
+  color: #cccccc !important;
 }
