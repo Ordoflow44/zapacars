@@ -367,7 +367,7 @@ export default async function Home() {
             <article className="group glass-blog">
               <div className="overflow-hidden rounded-xl mb-4 aspect-video">
                 <img
-                  src="https://images.unsplash.com/photo-1632823469636-2b0962d19bb8?q=80&w=600"
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=600"
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                   alt="Wymiana klocków hamulcowych"
@@ -462,14 +462,11 @@ export default async function Home() {
               <div>
                 <h3 className="text-white font-semibold text-lg mb-4 uppercase tracking-wide">Kontakt</h3>
                 <div className="text-gray-400 text-sm leading-relaxed flex flex-col gap-2">
-                  <a href="tel:+48666959570" className="hover:text-[#E30613] transition-colors flex items-center gap-2">
-                    <Phone className="w-4 h-4" /> 666 959 570 (Maciej)
-                  </a>
                   <a href="tel:+48730140666" className="hover:text-[#E30613] transition-colors flex items-center gap-2">
                     <Phone className="w-4 h-4" /> 730 140 666 (Arek)
                   </a>
-                  <a href="mailto:kontakt.zapacars@gmail.com" className="hover:text-[#E30613] transition-colors flex items-center gap-2 mt-2">
-                    <Mail className="w-4 h-4" /> kontakt.zapacars@gmail.com
+                  <a href="mailto:kontakt@zapacars.pl" className="hover:text-[#E30613] transition-colors flex items-center gap-2 mt-2">
+                    <Mail className="w-4 h-4" /> kontakt@zapacars.pl
                   </a>
                 </div>
               </div>

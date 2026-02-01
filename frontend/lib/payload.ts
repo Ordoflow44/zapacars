@@ -21,10 +21,24 @@ export async function getFeaturedServices() {
 }
 
 export async function getBlogPosts(limit = 10) {
-  const res = await fetch(`${PAYLOAD_URL}/api/blog?limit=${limit}&where[status][equals]=published`, { next: { revalidate: 60 } })
+  const res = await fetch(`${PAYLOAD_URL}/api/blog?limit=${limit}&where[status][equals]=published&sort=-publishedAt`, { next: { revalidate: 60 } })
   if (!res.ok) return []
   const data = await res.json()
   return data.docs || []
+}
+
+export async function getBlogPost(slug: string) {
+  const res = await fetch(`${PAYLOAD_URL}/api/blog?where[slug][equals]=${slug}&where[status][equals]=published`, { next: { revalidate: 60 } })
+  if (!res.ok) return null
+  const data = await res.json()
+  return data.docs?.[0] || null
+}
+
+export async function getAllBlogSlugs() {
+  const res = await fetch(`${PAYLOAD_URL}/api/blog?where[status][equals]=published&limit=100`, { next: { revalidate: 60 } })
+  if (!res.ok) return []
+  const data = await res.json()
+  return data.docs?.map((post: { slug: string }) => post.slug) || []
 }
 
 export async function getGallery(limit = 10) {

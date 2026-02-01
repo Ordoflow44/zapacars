@@ -1,3 +1,11 @@
+# ===========================================
+# DEV ONLY - NIE UŻYWAĆ NA PRODUKCJI
+# Produkcja jest na Coolify:
+# - Frontend: http://jsk4sw84skcggoc840k8wkwg.31.97.36.209.sslip.io
+# - CMS: https://cms-zapacars.31.97.36.209.sslip.io/admin
+# - Docelowo: https://zapacars.pl
+# ===========================================
+
 version: '3.8'
 
 services:

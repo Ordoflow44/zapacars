@@ -21,3 +21,6 @@ payload-cms/src/payload-types.ts
 # OS
 .DS_Store
 Thumbs.db
+
+# Credentials (never commit)
+.credentials

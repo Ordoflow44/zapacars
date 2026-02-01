@@ -29,6 +29,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl" className="scroll-smooth">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-FHMV7EKRWF"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-FHMV7EKRWF');
+          `}
+        </Script>
+      </head>
       <body className={`${inter.variable} ${oswald.variable} bg-[#050505] text-gray-300 antialiased selection:bg-[#E30613] selection:text-white`}>
         {children}
         <Script src="https://static.elfsight.com/platform/platform.js" strategy="lazyOnload" />
