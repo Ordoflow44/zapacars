@@ -345,7 +345,7 @@ export default async function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Article 1 */}
-            <article className="group glass-blog">
+            <a href="/blog/ile-kosztuje-wymiana-oleju" className="group glass-blog block cursor-pointer">
               <div className="overflow-hidden rounded-xl mb-4 aspect-video">
                 <img
                   src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?q=80&w=600"
@@ -361,10 +361,10 @@ export default async function Home() {
               <p className="text-gray-500 text-sm line-clamp-2">
                 Wymiana oleju kosztuje od 100 do 300 zł. Sprawdź, od czego zależy cena i jak nie przepłacać w warsztacie.
               </p>
-            </article>
+            </a>
 
             {/* Article 2 */}
-            <article className="group glass-blog">
+            <a href="/blog/wymiana-klockow-hamulcowych-poradnik" className="group glass-blog block cursor-pointer">
               <div className="overflow-hidden rounded-xl mb-4 aspect-video">
                 <img
                   src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=600"
@@ -380,10 +380,10 @@ export default async function Home() {
               <p className="text-gray-500 text-sm line-clamp-2">
                 Klocki wymienia się co 30 000-60 000 km. Poznaj objawy zużycia, kiedy jechać do warsztatu.
               </p>
-            </article>
+            </a>
 
             {/* Article 3 */}
-            <article className="group glass-blog">
+            <a href="/blog/5-oznak-ze-hamulce-wymagaja-wymiany" className="group glass-blog block cursor-pointer">
               <div className="overflow-hidden rounded-xl mb-4 aspect-video">
                 <img
                   src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=600"
@@ -399,7 +399,7 @@ export default async function Home() {
               <p className="text-gray-500 text-sm line-clamp-2">
                 Piszczenie, wibracje, dłuższa droga hamowania? Poznaj sygnały ostrzegawcze, których nie wolno ignorować.
               </p>
-            </article>
+            </a>
           </div>
 
           <div className="text-center mt-12">

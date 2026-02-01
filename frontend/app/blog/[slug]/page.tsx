@@ -25,6 +25,63 @@ function formatDate(dateString: string): string {
   })
 }
 
+interface RichTextChild {
+  text?: string
+  bold?: boolean
+  italic?: boolean
+  underline?: boolean
+  type?: string
+  children?: RichTextChild[]
+}
+
+interface RichTextNode {
+  type?: string
+  children?: RichTextChild[]
+}
+
+function renderText(child: RichTextChild): string {
+  if (!child.text) return ''
+  let text = child.text
+  if (child.bold) text = `<strong>${text}</strong>`
+  if (child.italic) text = `<em>${text}</em>`
+  if (child.underline) text = `<u>${text}</u>`
+  return text
+}
+
+function renderChildren(children: RichTextChild[]): string {
+  return children.map(child => {
+    if (child.text !== undefined) {
+      return renderText(child)
+    }
+    if (child.type === 'li') {
+      return `<li>${renderChildren(child.children || [])}</li>`
+    }
+    return renderChildren(child.children || [])
+  }).join('')
+}
+
+function richTextToHtml(content: RichTextNode[] | string | null | undefined): string {
+  if (!content) return ''
+  if (typeof content === 'string') return content
+
+  return content.map(node => {
+    const children = renderChildren(node.children || [])
+
+    switch (node.type) {
+      case 'h1': return `<h1>${children}</h1>`
+      case 'h2': return `<h2>${children}</h2>`
+      case 'h3': return `<h3>${children}</h3>`
+      case 'h4': return `<h4>${children}</h4>`
+      case 'paragraph': return `<p>${children}</p>`
+      case 'ul': return `<ul>${children}</ul>`
+      case 'ol': return `<ol>${children}</ol>`
+      case 'li': return `<li>${children}</li>`
+      case 'blockquote': return `<blockquote>${children}</blockquote>`
+      default: return `<p>${children}</p>`
+    }
+  }).join('\n')
+}
+
 export async function generateStaticParams() {
   const slugs = await getAllBlogSlugs()
   return slugs.map((slug: string) => ({ slug }))
@@ -139,7 +196,7 @@ export default async function BlogPostPage({
               prose-blockquote:border-[#E30613] prose-blockquote:text-gray-400
               prose-code:text-[#E30613] prose-code:bg-white/5 prose-code:px-1 prose-code:rounded
               pb-16"
-            dangerouslySetInnerHTML={{ __html: post.content || '' }}
+            dangerouslySetInnerHTML={{ __html: richTextToHtml(post.content) }}
           />
 
           {/* CTA */}
